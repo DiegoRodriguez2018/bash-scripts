@@ -2,9 +2,9 @@
 
 const axios = require("axios");
 const exec = require("child_process").exec;
-const config = require('./config') // secrets
+const config = require("./config"); // secrets
 
-const username = config && config.github;
+const { username } = config && config.github;
 
 const url = `https://api.github.com/users/${username}/repos`;
 
@@ -29,7 +29,7 @@ axios.get(url).then(async res => {
   const ssh_urls = res.data.map(repo => repo.ssh_url);
 
   for (let i = 0; i < ssh_urls.length; i++) {
-      const url = ssh_urls[i];
-      await clone(url)
+    const url = ssh_urls[i];
+    await clone(url);
   }
 });
