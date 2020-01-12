@@ -1,0 +1,1 @@
+This script retrieves the NASA image of the day and set it as cinnamon desktop background.
